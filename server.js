@@ -20,7 +20,7 @@ app.get('/app/', (req, res, next) => {
 }) 
 
 //Endpoint /app/roll
-app.post('/app/roll', (req, res, next) => {
+app.get('/app/roll', (req, res, next) => {
     console.log(JSON.stringify(roll(6, 2, 1)));
 })
 
@@ -31,14 +31,14 @@ app.get('app/roll/:sides', (req, res, next) => {
 })
 
 //Endpoint /app/roll/:sides/:dice/
-app.post('app/roll/:sides/:dice/', (req, res, next) => {
+app.get('app/roll/:sides/:dice/', (req, res, next) => {
     let numSides = req.params.sides;
     let numDice = req.params.dice;
     console.log(JSON.stringify(roll(numSides, numDice, 1)));
 })
 
 //Endpoint /app/roll/:sides/:dice/:rolls
-app.post('app/roll/:sides/:dice/:rolls', (req, res, next) => {
+app.get('app/roll/:sides/:dice/:rolls', (req, res, next) => {
     let numSides = req.params.sides;
     let numDice = req.params.dice;
     let numRolls = req.params.rolls;
