@@ -1,7 +1,7 @@
 import { roll } from "./lib/roll.js"
 import minimist from "minimist"
+import express from "express"
 
-const express = require ('express')
 const app = express
 
 const args = minimist(process.argv.slice(2))
