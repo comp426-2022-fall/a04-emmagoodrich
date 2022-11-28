@@ -6,16 +6,16 @@ const app = express()
 
 const args = minimist(process.argv.slice(2))
 
-if (args.port) {
-    const port = args.port
-} else {
-    port = 5000
-}
+const port = args.port || 5000
+
+app.listen(port, () => {
+	console.log("Server listening on port " + port + ".")
+})
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/app/', (req, res, next) => {
+app.get('/app/', (req, res, next) => {
     res.status(200);
 }) 
 
