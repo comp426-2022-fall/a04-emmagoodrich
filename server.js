@@ -15,12 +15,12 @@ if (args.port) {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/app/', (req, res, next) => {
+app.post('/app/', (req, res, next) => {
     res.status(200);
 }) 
 
 //Endpoint /app/roll
-app.get('/app/roll', (req, res, next) => {
+app.post('/app/roll', (req, res, next) => {
     console.log(roll(6, 2, 1));
 })
 
@@ -31,16 +31,16 @@ app.get('app/roll/:sides', (req, res, next) => {
 })
 
 //Endpoint /app/roll/:sides/:dice/
-app.get('app/roll/:sides/:dice/', (req, res, next) => {
+app.post('app/roll/:sides/:dice/', (req, res, next) => {
     let numSides = req.params.sides;
-    let numDice = req.parans.dice;
+    let numDice = req.params.dice;
     console.log(roll(numSides, numDice, 1));
 })
 
 //Endpoint /app/roll/:sides/:dice/:rolls
-app.get('app/roll/:sides/:dice/:rolls', (req, res, next) => {
+app.post('app/roll/:sides/:dice/:rolls', (req, res, next) => {
     let numSides = req.params.sides;
-    let numDice = req.parans.dice;
+    let numDice = req.params.dice;
     let numRolls = req.params.rolls;
     console.log(roll(numSides, numDice, numRolls));
 })
