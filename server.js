@@ -29,7 +29,7 @@ app.get('/app/roll', (req, res, next) => {
 
 //Endpoint /app/roll/:sides/
 app.get('app/roll/:sides', (req, res, next) => {
-    let numSides = req.params.sides;
+    let numSides = parseInt(req.params.sides);
     let numDice = 2;
     let numRolls = 1;    
     res.status(200).send(roll(numSides, numDice, numRolls));
@@ -37,17 +37,17 @@ app.get('app/roll/:sides', (req, res, next) => {
 
 //Endpoint /app/roll/:sides/:dice/
 app.get('app/roll/:sides/:dice/', (req, res, next) => {
-    let numSides = req.params.sides;
-    let numDice = req.params.dice;
+    let numSides = parseInt(req.params.sides);
+    let numDice = parseInt(req.params.dice);
     let numRolls = 1;
     res.status(200).send(roll(numSides, numDice, numRolls));
 })
 
 //Endpoint /app/roll/:sides/:dice/:rolls
 app.get('app/roll/:sides/:dice/:rolls', (req, res, next) => {
-    let numSides = req.params.sides;
-    let numDice = req.params.dice;
-    let numRolls = req.params.rolls;
+    let numSides = parseInt(req.params.sides);
+    let numDice = parseInt(req.params.dice);
+    let numRolls = parseInt(req.params.rolls);
     res.status(200).send(roll(numSides, numDice, numRolls));
 })
 
