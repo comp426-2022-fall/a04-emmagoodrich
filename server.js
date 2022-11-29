@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { roll } from "./lib/roll.js"
 import minimist from "minimist"
 import express from "express"
@@ -31,7 +33,7 @@ app.post('/app/roll/', (req, res) => {
 })
 
 //Endpoint /app/roll/:sides/
-app.get('app/roll/:sides/', (req, res) => {
+app.get('/app/roll/:sides/', (req, res) => {
     let sides = parseInt(req.params.sides);
     let dice = 2;
     let rolls = 1;    
@@ -39,7 +41,7 @@ app.get('app/roll/:sides/', (req, res) => {
 })
 
 //Endpoint /app/roll/:sides/:dice/
-app.get('app/roll/:sides/:dice/', (req, res) => {
+app.get('/app/roll/:sides/:dice/', (req, res) => {
     let sides = parseInt(req.params.sides);
     let dice = parseInt(req.params.dice);
     let rolls = 1;
@@ -47,7 +49,7 @@ app.get('app/roll/:sides/:dice/', (req, res) => {
 })
 
 //Endpoint /app/roll/:sides/:dice/:rolls
-app.get('app/roll/:sides/:dice/:rolls/', (req, res) => {
+app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
     let sides = parseInt(req.params.sides);
     let dice = parseInt(req.params.dice);
     let rolls = parseInt(req.params.rolls);
